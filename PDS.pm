@@ -332,7 +332,7 @@ sub asHash {
 	my $pds  = shift || $self->{pds};
 	my $lev  = shift || 1;
 
-	my ($rc, $key, $type, $s, $value);
+	my ($rc, $key, $type, $size, $value);
 	my $line = "-" x $lev;
 	while($rc == 0) {
 		($rc, $key, $type, $size, $value) = pdsGetNext($pds);
