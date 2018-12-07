@@ -337,7 +337,6 @@ sub asHash {
 	while($rc == 0) {
 		($rc, $key, $type, $size, $value) = pdsGetNext($pds);
 		next if $rc != PDS_ERR_NONE;
-		print "PDS Type => $type, key => $key, value => $value, size => $size\n";
 		if ($type == PDS_PDS) {
 			if (!defined($hptr->{$key})) {
 				nimLog(3,"PDS::asHash $line>Adding PDS: $key\n");
@@ -351,7 +350,6 @@ sub asHash {
 			$hptr->{$key} = $self->getCompleteTable($pds, PDS_PCH, $key);
 		}
 		elsif ($type == PDS_PPDS) {
-			print "PDS_PPDS triggered! \n";
 			my @PDSValues = ();
 			my $PDSArr = $self->getCompleteTable($pds, PDS_PDS, $key);
 			print Dumper($PDSArr);
