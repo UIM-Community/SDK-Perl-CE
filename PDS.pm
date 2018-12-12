@@ -352,7 +352,6 @@ sub asHash {
 		elsif ($type == PDS_PPDS) {
 			my @PDSValues = ();
 			my $PDSArr = $self->getCompleteTable($pds, PDS_PDS, $key);
-			print Dumper($PDSArr);
 			$hptr->{$key} = \@PDSValues;
 		}
 		else {
